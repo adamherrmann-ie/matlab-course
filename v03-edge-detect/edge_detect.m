@@ -1,8 +1,8 @@
 function [edge_bin] = edge_detect(input_image_gray,sobel_kx,sobel_ky,threshold)
 
 % Apply convolution to detect edges in both directions
-edge_x = conv2(input_image_gray, sobel_kx, 'same');
-edge_y = conv2(input_image_gray, sobel_ky, 'same');
+edge_x = conv2(input_image_gray, sobel_kx, 'valid');
+edge_y = conv2(input_image_gray, sobel_ky, 'valid');
 
 % Combine the gradients to get edge magnitude
 edge_mag = sqrt(edge_x.^2 + edge_y.^2);
